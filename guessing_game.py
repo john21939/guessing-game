@@ -1,6 +1,19 @@
 import random as r
+#sdsddsdd
 
-high_number = input("Enter number: ")
-random_number = r.randrange(0,int(high_number))
+def hint():
+    if int(guess) < random_number:
+        print("Your guess was low!")
+    if int(guess) > random_number:
+        print("Your guess was high!")
 
-guess = input(f"Guess the number between 1-{high_number}: ")
+
+high_number = int(input("Enter number: "))
+random_number = r.randrange(high_number)
+print(f"Enter number between 0-{high_number}")
+
+while True:
+    guess = int(input(f"Guess Here: "))
+    if guess == random_number:
+        print("You got it")
+        break
