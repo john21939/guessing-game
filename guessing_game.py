@@ -1,33 +1,39 @@
 import random as r
-#sdsd
 guesses = 0
-def hint():
-    if int(guess) < random_number:
-        print("Your guess was low!")
-    if int(guess) > random_number:
-        print("Your guess was high!")
-
-
-
-high_number = int(input("Enter number:"))
 
 
 
 
+
+high_number = input("Enter number:")
+if high_number.isdigit():
+    high_number = int(high_number)
+
+else:
+    print("Enter a number next time!")
+    quit()
+
+
+
+
+print(f"Enter number between 0-{high_number}")
 random_number = r.randrange(high_number)
-
-print(f"Enter number between 1-{high_number +1}")
 while True:
     guesses +=1
-    guess = int(input(f"Guess Here: "))
+    guess = input(f"Guess Here: ")
+    if guess.isdigit():
+        guess = int(guess)
+    else:
+        print("Enter number!")
+        continue
     if guess == random_number:
         print("You got it!")
         print(f"You guessed it in {guesses} guesses!")
         quit("bye")
-
+    elif guess < random_number:
+        print("Your guess was low!")
     else:
-        hint()
-
+        print("Your guess was high!")
 
 
 
